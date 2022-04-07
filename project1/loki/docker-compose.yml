@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: proj-promtail
+    volumes:
+      - ./promtail/promtail-docker-config.yml:/etc/promtail/docker-config.yaml
+      - ../logs/application.log:/var/log/application.log
+    command: "--config.file=/etc/promtail/docker-config.yaml"
+  loki:
+    image: grafana/loki:latest
+    container_name: proj-loki
+    ports:
+      - 3100:3100
+  grafana:
+    image: grafana/grafana:latest
+    container_name: proj-grafana
+    volumes:
+      - grafana-data:/var/lib/grafana
+    # persisting grafana settings
+    ports:
+      - 3000:3000
+    depends_on:
+      - loki
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    container_name: logging-prometheus
+volumes:
+  grafana-data:
+    driver: local
+  prometheus-data:
+    driver: local

@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active:
+      - "@profileActive@"
+      
+  datasource:
+    url: ${DB_URL_JAVALIN}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+      
+management:
+    endpoints:
+      web:
+        exposure:
+          include: health,metrics,prometheus
+#    metrics:
+#      distribution:
+#        percentiles-histogram.http.server.requests: true
+#        percentiles.http.server.requests: 0.5, 0.9, 0.95, 0.99, 0.999         
+          
+          
+          
+          
