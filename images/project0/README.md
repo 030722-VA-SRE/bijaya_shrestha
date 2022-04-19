@@ -1,1 +1,0 @@
-# Bijaya_shrestha
