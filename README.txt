@@ -49,10 +49,11 @@ Technologies Used:
 
 Features:
 * abled to use Https verbs like get, post and pull for http request and respone.
-* abled to record the log and metrics in application log using logback spring configuration.
+* abled to record the log and metrics in seperate application.log using logback spring configuration.
 * abled to display the log and metrics charts and table in Grafana using promtail, loki and prometheus.
-* abled to use different dependencies using Maven tools.
+* abled to use different types dependencies using Maven tools.
 * able to use containerized applications using docker and docker-compose.
+* able to use postgreSQL database using data.sql file.
 
 useable Commands
 -> docker build -t proj
@@ -63,9 +64,10 @@ useable Commands
 
 
 local host urls:
-->localhost:3000  (for grafana)
-->localhost:8081/actuator (for prometheus)
-->localhost:3101/conf  (for promtail)
+-> localhost:8080/   (for API)
+-> localhost:3000  (for grafana)
+-> localhost:8081/actuator (for prometheus)
+-> localhost:3101/conf  (for promtail)
 
 
 
