@@ -48,7 +48,7 @@ Technologies Used:
 * Exceptions
 
 Features:
-* abled to use dttps verbs like get, post and pull for http request and respone.
+* abled to use https verbs like get, post and pull for http request and respone.
 * abled to record the log and metrics in seperate application.log using logback spring configuration.
 * abled to display the log and metrics charts and table in Grafana using promtail, loki and prometheus.
 * abled to use different types dependencies using Maven tools.
